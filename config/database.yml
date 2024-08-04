@@ -80,5 +80,5 @@ test:
 production:
   <<: *default
   database: refei_tech_1_0_production
-  username: refei_tech_1_0
-  password: <%= ENV["REFEI_TECH_1_0_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: password
