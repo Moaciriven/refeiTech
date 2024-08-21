@@ -10,20 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_21_165529) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "administradores", primary_key: "ra", id: :string, force: :cascade do |t|
+  create_table "administradores", force: :cascade do |t|
+    t.string "ra", null: false
     t.string "senha", null: false
-
-    t.unique_constraint ["ra"], name: "unique_ra_admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "usuarios", primary_key: "ra", id: :string, force: :cascade do |t|
+  create_table "usuarios", force: :cascade do |t|
+    t.string "ra", null: false
     t.string "senha", null: false
-
-    t.unique_constraint ["ra"], name: "unique_ra"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
