@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
   skip_before_action :verify_authenticity_token 
 
+
   # Ação para adicionar um novo usuário
   def add_user
     new_user = User.new(user_params)

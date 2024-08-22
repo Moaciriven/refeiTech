@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get 'users/products', to: 'users#index', as: 'user_products'
   get 'users/products/:id', to: 'users#show', as: 'user_product'
 
-
   # Rotas para o carrinho
   post 'cart/add/:id', to: 'cart#add_to_cart', as: 'add_to_cart'
   get 'cart', to: 'cart#show', as: 'show_cart'
@@ -29,10 +28,9 @@ Rails.application.routes.draw do
   delete 'cart/remove_product/:product_id', to: 'cart#remove_product', as: 'cart_remove_product'
   delete 'cart/clear', to: 'cart#clear_cart', as: 'clear_cart'
 
-
-
   # Rotas para pagamentos
   get 'payment/new', to: 'payments#new', as: 'new_payment'
   post 'payment/create', to: 'payments#create', as: 'create_payment'
-
+  post 'payment/add_balance', to: 'payments#add_balance', as: 'add_balance' 
+  get 'payment/show_balance/:user_id', to: 'payments#show_balance', as: 'show_balance'
 end

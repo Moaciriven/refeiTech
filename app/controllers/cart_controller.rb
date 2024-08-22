@@ -12,19 +12,29 @@ class CartController < ApplicationController
       return
     end
   
+    produto = Produtos.find_by(id: produto_id)
+    unless produto
+      render json: { status: 'fail', message: 'Produto não encontrado' }, status: :not_found
+      return
+    end
+
+    if qtde > produto.qtde
+      render json: { status: 'fail', message: 'Quantidade solicitada excede o estoque disponível' }, status: :bad_request
+      return
+    end
+
     cart = session[:cart] || []
     produto_existente = cart.find { |item| item['id'] == produto_id }
   
     if produto_existente
-      produto_existente['qtde'] += qtde
-    else
-      produto = Produtos.find_by(id: produto_id)
-      if produto
-        cart << { 'id' => produto.id, 'qtde' => qtde }
-      else
-        render json: { status: 'fail', message: 'Produto não encontrado' }, status: :not_found
+      nova_qtde = produto_existente['qtde'] + qtde
+      if nova_qtde > produto.qtde
+        render json: { status: 'fail', message: 'Quantidade total no carrinho excede o estoque disponível' }, status: :bad_request
         return
       end
+      produto_existente['qtde'] = nova_qtde
+    else
+      cart << { 'id' => produto.id, 'qtde' => qtde }
     end
   
     session[:cart] = cart
