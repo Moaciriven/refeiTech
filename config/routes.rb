@@ -15,19 +15,21 @@ Rails.application.routes.draw do
   patch 'products/update/:id', to: 'products#update', as: 'update_product'
   delete 'products/remove/:id', to: 'products#destroy', as: 'remove_product'
   get 'products/list', to: 'products#index', as: 'list_products'
-  get 'products/check_stock', to: 'products#check_stock', as: 'check_product_stock'
+  get 'products/check_stock/:id', to: 'products#check_stock', as: 'check_product_stock'
 
   # Rotas para usuários
   get 'users/products', to: 'users#index', as: 'user_products'
   get 'users/products/:id', to: 'users#show', as: 'user_product'
-  post 'users/products/:id/add_to_cart', to: 'users#add_to_cart', as: 'user_cart'
 
   # Rotas para o carrinho
+  post 'cart/add/:id', to: 'cart#add_to_cart', as: 'add_to_cart'
   get 'cart', to: 'cart#show', as: 'show_cart'
-  delete 'cart/remove_product', to: 'cart#remove_product', as: 'cart_remove_product'
-  patch 'cart/update_quantity', to: 'cart#update_quantity', as: 'cart_update_quantity'
+  patch 'cart/update_quantity/:id', to: 'cart#update_quantity', as: 'update_cart_quantity'
+  delete 'cart/remove_product/:product_id', to: 'cart#remove_product', as: 'cart_remove_product'
+  delete 'cart/clear', to: 'cart#clear_cart', as: 'clear_cart'
 
   # Rotas para pagamentos
   get 'payment/new', to: 'payments#new', as: 'new_payment'
   post 'payment/create', to: 'payments#create', as: 'create_payment'
+  post 'payment/add_balance', to: 'payments#add_balance', as: 'add_balance' 
 end
