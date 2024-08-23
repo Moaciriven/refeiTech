@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_23_210354) do
   create_table "compras", force: :cascade do |t|
     t.string "usuarios_ra", null: false
     t.bigint "produtos_id"
+    t.datetime "data_compra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["produtos_id"], name: "index_compras_on_produtos_id"
