@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_21_165529) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_23_210354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,11 +21,31 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_165529) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "compras", force: :cascade do |t|
+    t.string "usuarios_ra", null: false
+    t.bigint "produtos_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produtos_id"], name: "index_compras_on_produtos_id"
+  end
+
+  create_table "produtos", force: :cascade do |t|
+    t.string "nome", null: false
+    t.decimal "preco", precision: 10, scale: 2, null: false
+    t.integer "qtde"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string "ra", null: false
     t.string "senha", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "saldo", precision: 10, scale: 2, null: false
+    t.index ["ra"], name: "index_usuarios_on_ra", unique: true
   end
 
+  add_foreign_key "compras", "produtos", column: "produtos_id"
+  add_foreign_key "compras", "usuarios", column: "usuarios_ra", primary_key: "ra"
 end
