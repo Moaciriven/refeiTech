@@ -30,6 +30,6 @@ class AdminsController < ApplicationController
   end
   
   def user_params
-    params.permit(:ra, :senha)
+    params.permit(:ra, :senha, :saldo)
   end
 end
