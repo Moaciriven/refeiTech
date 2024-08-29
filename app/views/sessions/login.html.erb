@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <meta name="csrf-token" content="<%= form_authenticity_token %>">
+        <%= stylesheet_link_tag 'login', media: 'all' %>
+    </head>
+    <body class="login-page">
+        
+        <header class="header">
+            <h1>Refeitech</h1>     
+        </header>
+            <!-- Formulário de Login -->
+        <%= form_with url: '/login', method: :post, id: 'login-form', local: true do |f| %>
+            <div class="form-group">
+                <label for="ra">RA:</label>
+                <%= f.text_field :ra, id: 'ra', placeholder: 'Digite seu RA', required: true %>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <%= f.password_field :password, id: 'senha', placeholder: 'Digite sua senha', required: true %>
+            </div>
+            <div class="form-group">
+                <%= f.submit 'Entrar' %>
+            </div>
+        <% end %>
+
+        <!-- Mensagens de Erro e Sucesso -->
+        <div id="error-message" class="alert error" style="display: none; color: red;"></div>
+        <div id="success-message" class="alert success" style="display: none; color: green;"></div>
+
+        <!-- Inclusão do JavaScript -->
+        <%= javascript_include_tag 'login' %>
+
+    </body>
+</html>

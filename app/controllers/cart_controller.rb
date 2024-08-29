@@ -1,6 +1,10 @@
 class CartController < ApplicationController
   skip_before_action :verify_authenticity_token
+<<<<<<< HEAD
   before_action :set_produto, only: [:update_quantity]
+=======
+  # before_action :set_produto, only: [:update_quantity]
+>>>>>>> 88ac1b4 (teste)
 
 
   def add_to_cart
@@ -43,6 +47,7 @@ class CartController < ApplicationController
   end
   
   def show
+<<<<<<< HEAD
     cart = session[:cart] || []
     Rails.logger.debug "Carrinho no show: #{cart.inspect}"
     total_price = 0
@@ -57,6 +62,43 @@ class CartController < ApplicationController
     render json: { status: 'success', cart: cart, total_price: total_price }, status: :ok
   end
   
+=======
+    if request.format.html?
+      # Renderiza a visualização HTML se o formato for HTML
+      @cart_items = fetch_cart_items
+      @total_price = @cart_items.sum { |item| item[:price].to_f * item[:quantity] }
+      render :show
+    else
+      # Renderiza JSON para outras requisições
+      cart = session[:cart] || []
+      total_price = 0
+  
+      cart.each do |item|
+        produto = Produtos.find_by(id: item['id'])
+        if produto
+          total_price += produto.preco.to_f * item['qtde']
+        end
+      end
+  
+      render json: { status: 'success', cart: cart, total_price: total_price }, status: :ok
+    end
+  end 
+  
+  def fetch_cart_items
+    cart = session[:cart] || []
+    cart.map do |item|
+      produto = Produtos.find_by(id: item['id'])
+      if produto
+        {
+          name: produto.nome,
+          price: produto.preco,
+          quantity: item['qtde']
+        }
+      end
+    end.compact
+  end  
+
+>>>>>>> 88ac1b4 (teste)
   def update_quantity
     Rails.logger.info "Parameters: #{params.inspect}" # Adiciona log para depuração
     qtde = params[:qtde].to_i
@@ -89,8 +131,17 @@ class CartController < ApplicationController
   
 
   def clear_cart
+<<<<<<< HEAD
     session[:cart] = []
     render json: { status: 'success', message: 'Carrinho esvaziado com sucesso' }, status: :ok
+=======
+    session[:cart] = [] # Limpa o carrinho
+    if request.format.html?
+      redirect_to '/cart', notice: 'Carrinho limpo com sucesso.' # Redireciona para a página do carrinho
+    else
+      render json: { status: 'success', message: 'Carrinho limpo com sucesso.' }, status: :ok
+    end
+>>>>>>> 88ac1b4 (teste)
   end
 
   private

@@ -25,8 +25,13 @@ class AdminsController < ApplicationController
 
   # Ação para listar todos os usuários
   def list_users
+<<<<<<< HEAD
     users = User.all
     render json: {status: 'success', users: users}, status: :ok
+=======
+    @users = User.all
+    render 'admins/list_users'  # Força a renderização da view HTML
+>>>>>>> 88ac1b4 (teste)
   end
   
   def user_params

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <%= stylesheet_link_tag 'products', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'products', 'data-turbolinks-track': 'reload' %>
+</head>
+<body class ="products-page">
+
+    <header class="header">
+      <h1>Menu</h1>
+      <%= link_to 'Carrinho', '/cart', class: 'button cart-button' %>
+      <% if @user %>
+          <%= link_to 'Perfil', "/profile/#{@user.id}", class: 'button profile-button' %>
+      <% else %>
+          <%= link_to 'Perfil', '/profile', class: 'button profile-button' %>
+      <% end %>
+    </header>
+
+    <div id="products-list">
+      <% @products.each do |product| %>
+        <div>
+          <h2><%= product.nome %></h2>
+          <p>Preço: R$ <%= product.preco %></p>
+          <button class ="button" onclick="addToCart(<%= product.id %>)">Adicionar ao Carrinho</button>
+        </div>
+
+      <% end %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* app/assets/stylesheets/cart.css */
+
+.cart-page {
+  padding-top: 65px; /* Espaço para o cabeçalho fixo */
+  font-family: Arial, sans-serif;
+}
+ 
+.cart-page .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0e0e0e;
+  color: yellow;
+  height: 65px;
+  text-align: center;
+  margin: 0; /* Remove qualquer margem que possa estar desalinhando o cabeçalho */
+  position: fixed; /* Fixa o cabeçalho no topo da página */
+  top: 0;
+  left: 0;
+}
+
+.cart-page h1 {
+    text-align: center;
+    margin-top: 15px;
+}
+  
+#cart-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+  
+.cart-item h2 {
+    font-size: 18px;
+    margin: 0;
+}
+  
+.cart-item span {
+    font-size: 16px;
+}
+  
+.cart-page .button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: yellow;
+    border: none;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.cart-page .button:hover {
+    background-color: #fdff70;
+}

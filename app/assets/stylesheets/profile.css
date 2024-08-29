@@ -1,0 +1,72 @@
+.profile-page {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.profile-page .header {
+    position: fixed;
+    width: 100%;
+    background-color: #0e0e0e;
+    color: yellow;
+    height: 65px;
+    text-align: center;
+    margin: 0; /* Remove qualquer margem que possa estar desalinhando o cabeçalho */
+    position: fixed; /* Fixa o cabeçalho no topo da página */
+    top: 0;
+    left: 0;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    margin: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid #4CAF50;
+}
+
+
+#user-ra {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+.profile-page .button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: yellow;
+    border: none;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.profile-page .button:hover {
+    background-color: #fdff70;
+}

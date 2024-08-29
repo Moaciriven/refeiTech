@@ -1,0 +1,111 @@
+/* Estilos específicos para a página de administração de usuários */
+.admin-users-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-users-page .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #0e0e0e;
+    color: yellow;
+    height: 65px;
+    text-align: center;
+    margin: 0; /* Remove qualquer margem que possa estar desalinhando o cabeçalho */
+    position: fixed; /* Fixa o cabeçalho no topo da página */
+    top: 0;
+    left: 0;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.admin-users-page .user-list {
+    margin: 80px 15px 15px 15px; /* Espaçamento abaixo do cabeçalho fixo */
+}
+
+.user-list h2 {
+    color: #333;
+}
+
+.user-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-list li {
+    background-color: #fdff70;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-list .remove-button {
+    background-color: #e74c3c; /* Vermelho */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.user-list .remove-button:hover {
+    background-color: #c0392b; /* Vermelho escuro */
+}
+
+#add-user-form {
+    margin-top: 20px;
+}
+
+#add-user-form div {
+    margin-bottom: 15px;
+}
+
+#add-user-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#add-user-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#add-user-form button {
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#add-user-form button:hover {
+    background-color: #388E3C; /* Verde escuro */
+}
+
+.button {
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #388E3C; /* Verde escuro */
+}
