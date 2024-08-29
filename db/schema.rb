@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_23_210354) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_29_182028) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_23_210354) do
     t.string "senha", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "saldo", precision: 10, scale: 2, null: false
+    t.decimal "saldo", precision: 10, scale: 2, default: "0.0", null: false
     t.index ["ra"], name: "index_usuarios_on_ra", unique: true
   end
 
