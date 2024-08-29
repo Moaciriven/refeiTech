@@ -14,10 +14,7 @@ class ProductsController < ApplicationController
 
   def index
     @produtos = Produtos.all
-<<<<<<< HEAD
-=======
     @user_id = current_user.id if current_user
->>>>>>> 88ac1b4 (teste)
     render json: { status: 'success', produtos: @produtos }, status: :ok
   end
 

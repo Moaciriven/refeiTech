@@ -2,20 +2,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-<<<<<<< HEAD
-  username: postgres
-  password: password
-=======
   username: admin
   password: 123456
->>>>>>> 88ac1b4 (teste)
   host: localhost
   port: 5432
 
 development:
   <<: *default
-<<<<<<< HEAD
-  database: refei_tech_1
-=======
   database: refeitech_1
->>>>>>> 88ac1b4 (teste)

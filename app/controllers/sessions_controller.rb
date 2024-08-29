@@ -2,13 +2,10 @@ class SessionsController < ApplicationController
   # Ação para criar a sessão (login)
   skip_before_action :verify_authenticity_token # Ignora verificação CSRF para API
 
-<<<<<<< HEAD
-=======
   def new
     render 'login'
   end
 
->>>>>>> 88ac1b4 (teste)
   def create
     # Use user_params para acessar os parâmetros da requisição
     user_params = user_params()
@@ -18,11 +15,6 @@ class SessionsController < ApplicationController
     admin = Admin.find_by(ra: user_params[:ra])
   
     if admin && admin.senha == user_params[:senha]
-<<<<<<< HEAD
-      render json: { status: 'success', message: "Bem-vindo, administrador!", user_type: 'admin' }, status: :ok
-    elsif user && user.senha == user_params[:senha]
-      render json: { status: 'success', message: "Bem-vindo, usuário!", user_type: 'user' }, status: :ok
-=======
       session[:user_id] = admin.id
       session[:user_type] = 'admin'
       render json: { status: 'success', message: "Bem-vindo, administrador!", user_type: 'admin' }, status: :ok
@@ -30,7 +22,6 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       session[:user_type] = 'user'
       render json: { status: 'success', message: "Bem-vindo, usuário!", user_type: 'user', redirect_to: user_products_path }, status: :ok
->>>>>>> 88ac1b4 (teste)
     elsif user.nil? && admin.nil?
       render json: { message: "Usuário não encontrado" }, status: :unprocessable_entity
     else
@@ -64,7 +55,3 @@ class SessionsController < ApplicationController
     end
   end
 end
-<<<<<<< HEAD
-=======
-
->>>>>>> 88ac1b4 (teste)

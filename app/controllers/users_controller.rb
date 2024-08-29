@@ -4,15 +4,11 @@ class UsersController < ApplicationController
   # Exibe todos os produtos disponíveis
   def index
     @products = Produtos.all
-<<<<<<< HEAD
-    render json: { status: 'success', products: @products }, status: :ok
-=======
     @user = current_user
     respond_to do |format|
       format.html # Renderiza a view 'index.html.erb'
       format.json { render json: @products } # Retorna JSON apenas se solicitado
     end
->>>>>>> 88ac1b4 (teste)
   end
 
   # Exibe os detalhes de um produto específico
@@ -21,11 +17,7 @@ class UsersController < ApplicationController
     render json: { status: 'success', produto: @produto }, status: :ok
     rescue ActiveRecord::RecordNotFound
     render json: { status: 'error', message: 'Produto não encontrado' }, status: :not_found
-<<<<<<< HEAD
-    end    
-=======
     end
     
   
->>>>>>> 88ac1b4 (teste)
 end
