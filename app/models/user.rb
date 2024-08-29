@@ -15,4 +15,16 @@ class User < ApplicationRecord
     "/images/default_profile_picture.png" # Exemplo de uma imagem padrão
   end
 
+  def self.current_user(session)
+    if session[:user_type] == 'admin'
+      Admin.find_by(id: session[:user_id])
+    else
+      User.find_by(id: session[:user_id])
+    end
+  end
+
+  # Método para acessar os parâmetros da requisição
+  def self.user_params(params)
+    params.require(:user).permit(:ra, :senha)
+  end
 end

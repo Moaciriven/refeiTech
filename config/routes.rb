@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   # Rotas para produtos
   get 'products', to: 'products#index', as: 'products'
   post 'products/add', to: 'products#create', as: 'add_product'
-  patch 'products/update_quantity/:id', to: 'products#update_quantity', as: 'update_product'
+  patch 'products/update/:id', to: 'products#update', as: 'update_product'
   delete 'products/remove/:id', to: 'products#destroy', as: 'remove_product'
   get 'products/list', to: 'products#index', as: 'list_products'
   get 'products/check_stock/:id', to: 'products#check_stock', as: 'check_product_stock'
+  
 
   # Rotas para usuários
   get 'users/products', to: 'users#index', as: 'user_products'
@@ -33,6 +34,8 @@ Rails.application.routes.draw do
   # Rotas para pagamentos
   get 'payment/new', to: 'payments#new', as: 'new_payment'
   post 'payment/create', to: 'payments#create', as: 'create_payment'
+  post 'payment/add_balance', to: 'payments#add_balance', as: 'add_balance' 
+  get 'payment/show_balance/:user_id', to: 'payments#show_balance', as: 'show_balance'
 
   # Rotas para Perfil
   get '/profile/:id', to: 'profile#show', as: 'profile'
