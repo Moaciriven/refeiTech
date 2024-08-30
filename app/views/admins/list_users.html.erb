@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Lista de Usuários</title>
+    <%= stylesheet_link_tag 'admin_users', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body class="admin-users-page">
+
+    <header class="header">
+      <h1>Lista de Usuários</h1>
+    </header>
+
+    <div class="user-list">
+        <h2>Usuários Cadastrados</h2>
+        <ul>
+          <% @users.each do |user| %>
+            <li>
+              <%= user.ra %>
+              <button class="remove-button" data-id="<%= user.ra %>">Remover</button>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+
+    <div id="add-user-form">
+      <h2>Adicionar Novo Usuário</h2>
+      <%= form_with url: admins_add_user_path, method: :post, local: true do |form| %>
+        <div>
+          <%= form.label :ra, 'RA' %>
+          <%= form.text_field :ra %>
+        </div>
+        <div>
+          <%= form.label :password, 'Senha' %>
+          <%= form.password_field :password %>
+        </div>
+        <div>
+          <%= form.submit 'Adicionar Usuário', class: 'button' %>
+        </div>
+      <% end %>
+    </div>
+
+    <script src="<%= asset_path 'admin_users.js' %>"></script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+body.login-page {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+.login-page .header {
+    position: fixed;
+    width: 100%;
+    background-color: #0e0e0e;
+    color: yellow;
+    height: 65px;
+    text-align: center;
+    margin: 0; /* Remove qualquer margem que possa estar desalinhando o cabeçalho */
+    position: fixed; /* Fixa o cabeçalho no topo da página */
+    top: 0;
+    left: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-group button:hover {
+    background-color: #0056b3;
+}
+.alert {
+    margin-top: 10px;
+}
+.alert.error {
+    color: red;
+}
+.alert.success {
+    color: green;
+}
+.flash-message {
+    background-color: #d4edda; /* Exemplo de cor de fundo verde claro */
+    color: #155724; /* Cor do texto verde escuro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

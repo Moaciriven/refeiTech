@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <%= stylesheet_link_tag 'cart', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body class="cart-page">
+
+    <header class="header">
+      <h1>Carrinho de Compras</h1>
+      <%= link_to 'Voltar', '/users/products', class: 'button cart-button' %>
+    </header>
+
+    <% if @cart_items.empty? %>
+      <p>Seu carrinho está vazio.</p>
+    <% else %>
+      <ul>
+        <% @cart_items.each do |item| %>
+          <li><%= item[:name] %> - R$ <%= item[:price] %> (Quantidade: <%= item[:quantity] %>)</li>
+          
+        <% end %>
+      </ul>
+      <p><strong>Total: R$ <%= @total_price %></strong></p>
+      
+      <%= form_with url: clear_cart_path, method: :delete, local: true, html: { id: 'clear-cart-form' } do |form| %>
+        <%= form.submit 'Limpar Carrinho', class: 'btn btn-danger' %>
+      <% end %>
+
+    <% end %>
+
+</body>
+</html>

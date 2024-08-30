@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Refeitech" %></title>
+    <%= stylesheet_link_tag 'cart', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' if current_page?(login_path) %>
+    <%= stylesheet_link_tag 'products', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'admin_users', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+</head>
+<body>
+    <header>
+        <h1></h1>
+    </header>
+
+    <div class="content">
+        <%= yield %>
+    </div>
+    
+
+</body>
+</html>

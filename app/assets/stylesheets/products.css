@@ -1,0 +1,102 @@
+/* Estilos específicos para a página de produtos */
+.products-page {
+    padding-top: 65px; /* Espaço para o cabeçalho fixo */
+    font-family: Arial, sans-serif;
+}
+
+.products-page h1, .products-page h2 {
+    color: #333;
+}
+
+.products-page #products-list {
+    margin-top: 20px;
+}
+
+#products-list div {
+    background-color: #fdff70; /* Cor de fundo para cada produto */
+    padding: 20px; /* Espaçamento interno */
+    margin-bottom: 30px; /* Espaçamento entre os produtos */
+    margin-left: 15px; /* Espaçamento entre os produtos */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar efeito de profundidade */
+    width: 600px; /* Define a largura */
+    height: 200px; /* Define a altura */
+    display: inline-block;
+
+}
+
+.products-page .button {
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.products-page .button:hover {
+    background-color: #218838; /* Verde escuro */
+}
+
+.products-page .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #0e0e0e;
+    color: yellow;
+    height: 65px;
+    text-align: center;
+    margin: 0; /* Remove qualquer margem que possa estar desalinhando o cabeçalho */
+    position: fixed; /* Fixa o cabeçalho no topo da página */
+    top: 0;
+    left: 0;
+}
+
+.products-page .header h1 {
+    text-align: center;
+    color: white;
+}
+
+.products-page .cart-button, 
+.products-page .profile-button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.products-page .cart-button:hover,
+.products-page .profile-button:hover {
+    background-color: #1d1d1d;
+}
+
+/* Alinhamento dos botões dentro do cabeçalho */
+.products-page .header .header-buttons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.products-page .header .header-buttons button {
+    background-color: yellow;
+    border: none;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.products-page .header .header-buttons button:hover {
+    background-color: #fdff70;
+}
