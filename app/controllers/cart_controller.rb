@@ -1,6 +1,6 @@
 class CartController < ApplicationController
   skip_before_action :verify_authenticity_token
-  # before_action :set_product, only: [:update_quantity]
+  before_action :set_product, only: [:update_quantity]
 
 
   def add_to_cart
